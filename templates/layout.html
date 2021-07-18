@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}{% endblock %} | {{ name }}</title>
+        <meta name="author" content="{{ name }}" />
+        <meta name="description" content="Hello, World!" />
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+
+            .food-list {
+                border: 2px solid red;
+                font-family: cursive;
+                font-size: 2rem;
+                padding: 2rem;
+            }
+
+            img {
+                width: 500px;
+            }
+
+            .projects {
+                border: 1px dashed green;
+            }
+
+            .projects li {
+                margin-top: 2rem;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ol>
+                <a href="/">
+                    <li>about</li>
+                </a>
+                <a href="/projects">
+                    <li>projects</li>
+                </a>
+                <a href="/contact">
+                    <li>contact</li>
+                </a>
+            </ol>
+        </nav>
+        {% block content %}{% endblock %}
+    </body>
+</html>

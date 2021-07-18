@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+
+{% if name is none %}
+<h1>i don't know who i am!</h1>
+{% else %}
+<h1>hello, my name is {{ name }}</h1>
+{% endif %}
+
+<img src="{{ url_for('static', filename='image.png') }}" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Eric_Bana_at_the_2009_Tribeca_Film_Festival.jpg" />
+
+<ul class="food-list">
+    {% for food in list_of_food %}
+        <li>{{ food }}</li>
+    {% endfor  %}
+</ul>
+
+{% endblock %}

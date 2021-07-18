@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+<h1>Projects</h1>
+
+<ul class="projects">
+    {% for project in projects %}
+        <a href="{{ project['url'] }}">
+            <li>{{ project['name']}} - {{ project['desc'] }}</li>
+        </a>
+    {% endfor  %}
+</ul>
+{% endblock %}
