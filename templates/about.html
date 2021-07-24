@@ -9,11 +9,10 @@
 {% endif %}
 
 <img src="{{ url_for('static', filename='image.png') }}" />
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Eric_Bana_at_the_2009_Tribeca_Film_Festival.jpg" />
 
 <ul class="food-list">
     {% for food in list_of_food %}
-        <li>{{ food }}</li>
+        <li>{{ food[0] }}</li>
     {% endfor  %}
 </ul>
 
