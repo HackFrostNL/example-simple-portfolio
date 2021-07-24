@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Blog</h1>
 
-<ul>
+<ul class="blog-posts">
 {% for post in blog_posts %}
     <a href="/blog/{{ post['name'] }}">
         <li>{{ post["name"] }} - {{ post["date"].strftime("%B %d, %Y") }}</li>
