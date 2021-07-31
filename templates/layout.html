@@ -5,41 +5,128 @@
         <title>{% block title %}{% endblock %} | {{ name }}</title>
         <meta name="author" content="{{ name }}" />
         <meta name="description" content="Hello, World!" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous">
         <style>
             body {
+                padding: 0 0.75rem 1rem 0.75rem;
                 font-family: sans-serif;
+                background-color: #fffeef;
+            }
+
+            h1, h2, h3, h4, h5, h6, p, span, i {
+                color: #28281c;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            nav {
+                border-bottom: 2px solid black;
+                margin-bottom: 1.5rem;
+            }
+
+            nav p {
+                font-weight: bold;
+                display: inline-block;
+            }
+
+            nav ul {
+                float: right;
+                list-style-type: none;
+                padding-left: 0;
+            }
+
+            nav ul li {
+                display: inline-block;
+                margin-left: 1rem;
+            }
+
+            .content-wrapper {
+                display: flex;
+                justify-content: center;
+            }
+            .content {
+                max-width: 60vw;
+                min-width: 60vw;
+            }
+
+            .center {
+                text-align: center;
+            }
+
+            .about {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about img {
+                max-width: 70vw;
             }
 
             .food-list {
-                border: 2px solid red;
-                font-family: cursive;
-                font-size: 2rem;
-                padding: 2rem;
-            }
-
-            .blog-posts {
-                border: 2px solid green;
-                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-                font-size: 2rem;
-                padding: 2rem;
-            }
-
-            img {
-                width: 500px;
-            }
-
-            .projects {
-                border: 1px dashed green;
-            }
-
-            .projects li {
                 margin-top: 2rem;
+                max-width: 50%;
+            }
+
+            .food-list .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .food-list .container .item {
+                background-color: #2c513f;
+                padding: 1rem;
+                width: 5rem;
+            }
+            .food-list .container .item span {
+                color: #ebe2f4;
+            }
+
+            .profile {
+                margin: 2rem 0 2rem 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile i {
+                margin: 0 1rem;
+            }
+            .profile a {
+                text-decoration: none;
+                color: black;
+            }
+
+            @keyframes my-animation {
+                from {
+                    transform: translateY(30px);
+                    opacity: 0.5;
+                }
+                to {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+
+            .food-list .container .item {
+                transition: all 0.1s ease-in-out;
+            }
+            .food-list .container .item:hover {
+                transform: scale(1.1);
+            }
+
+            .animate {
+                animation: my-animation 0.6s ease-out 0s 1;
             }
         </style>
     </head>
     <body>
         <nav>
-            <ol>
+            <p>{{ name }}</p>
+            <ul>
                 <a href="/">
                     <li>about</li>
                 </a>
@@ -52,8 +139,26 @@
                 <a href="/contact">
                     <li>contact</li>
                 </a>
-            </ol>
+            </ul>
         </nav>
-        {% block content %}{% endblock %}
+        <div class="content-wrapper">
+            <div class="content animate">
+                {% block content %}{% endblock %}
+
+                <div class="profile">
+                    <div>
+                        <a href="https://github.com">
+                            <i class="fab fa-2x fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com">
+                            <i class="fab fa-2x fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com">
+                            <i class="fab fa-2x fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
